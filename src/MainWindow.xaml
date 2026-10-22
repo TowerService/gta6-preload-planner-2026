@@ -1,0 +1,83 @@
+<Window x:Class="GTA6PreloadPlanner.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/microsoft.com/winfx/2006/xaml"
+        mc:Ignorable="d"
+        Title="GTA 6 Preload Planner"
+        Height="520"
+        Width="700"
+        WindowStartupLocation="CenterScreen"
+        Background="#1e1e1e"
+        Foreground="#cccccc">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Text="GTA 6 Preload Planner"
+                   FontSize="24"
+                   FontWeight="Bold"
+                   Foreground="#007acc"
+                   Margin="0,0,0,20"/>
+
+        <TabControl Grid.Row="1" Margin="0,0,0,16">
+            <TabItem Header="Estimator">
+                <StackPanel>
+                    <TextBlock Text="Select Edition:" Foreground="#cccccc" Margin="0,0,0,4"/>
+                    <ComboBox x:Name="cmbEdition" Width="200" Margin="0,0,0,12">
+                        <ComboBoxItem Content="Standard (150-180 GB)" Tag="Standard"/>
+                        <ComboBoxItem Content="Ultimate (180-200 GB)" Tag="Ultimate"/>
+                    </ComboBox>
+
+                    <TextBlock Text="Target Platform:" Foreground="#cccccc" Margin="0,0,0,4"/>
+                    <ComboBox x:Name="cmbPlatform" Width="200" Margin="0,0,0,12">
+                        <ComboBoxItem Content="PC" Tag="PC"/>
+                        <ComboBoxItem Content="PlayStation 5" Tag="PlayStation5"/>
+                        <ComboBoxItem Content="Xbox Series X" Tag="XboxSeriesX"/>
+                    </ComboBox>
+
+                    <TextBlock Text="Target Drive:" Foreground="#cccccc" Margin="0,0,0,4"/>
+                    <ComboBox x:Name="cmbDrive" Width="200" Margin="0,0,0,12"/>
+
+                    <Button x:Name="btnCheck" Content="Check Drive Space" Width="160" Height="36"
+                            Background="#007acc" Foreground="White" BorderThickness="0" Click="BtnCheck_Click"/>
+
+                    <TextBlock x:Name="txtEstimateResult" Margin="0,16,0,0" Foreground="#cccccc" TextWrapping="Wrap"/>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Header="Cleanup">
+                <StackPanel>
+                    <TextBlock Text="Scan Drive for Large Folders:" Foreground="#cccccc" Margin="0,0,0,8"/>
+                    <ComboBox x:Name="cmbCleanupDrive" Width="200" Margin="0,0,0,12"/>
+                    <Button x:Name="btnScanCleanup" Content="Scan" Width="100" Height="32"
+                            Background="#007acc" Foreground="White" BorderThickness="0" Click="BtnScanCleanup_Click"/>
+
+                    <ProgressBar x:Name="prgScan" Height="20" Margin="0,0,0,12" Visibility="Collapsed"/>
+
+                    <ListBox x:Name="lstLargeFolders" Height="200" Margin="0,0,0,12" Foreground="#cccccc"/>
+
+                    <Button x:Name="btnOpenFolder" Content="Open Folder" Width="120" Height="32"
+                            Background="#333333" Foreground="White" BorderThickness="0" Click="BtnOpenFolder_Click"/>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Header="Fake Warning">
+                <StackPanel>
+                    <TextBlock Text="Known Fake GTA 6 Builds:" Foreground="#cccccc" Margin="0,0,0,8"/>
+                    <ListBox x:Name="lstFakeBuilds" Height="300" Foreground="#cccccc"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+
+        <StatusBar Grid.Row="2" Margin="0,20,0,0" Background="#2d2d2d" BorderThickness="0,1,0,0">
+            <StatusBarItem>
+                <TextBlock x:Name="txtStatus" Foreground="#888888" Text="Ready"/>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>

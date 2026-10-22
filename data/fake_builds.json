@@ -1,0 +1,14 @@
+[
+  {
+    "name": "GTA6_Setup.exe",
+    "size_range": "100-120 GB",
+    "hash_prefix": "a3f9c2e1",
+    "description": "Reported harmful wrapper — small payload with empty padding"
+  },
+  {
+    "name": "GTA6_Leak_113GB.rar",
+    "size_range": "110-115 GB",
+    "hash_prefix": "7d4e1b9a",
+    "description": "Reported harmful content disguised as game archive"
+  }
+]
